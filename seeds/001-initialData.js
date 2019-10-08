@@ -1,13 +1,42 @@
-
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
+  return knex('cars')
+    .truncate()
+    .then(function() {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('cars').insert([
+        {
+          vin: 12345678909876543,
+          make: 'Honda',
+          model: 'accord',
+          transmission: 'automatic',
+          'title status': 'Clean',
+          miles: 40000
+        },
+        {
+          vin: 12345678909876543,
+          make: 'Chevy',
+          model: 'volt',
+          transmission: 'manual',
+          'title status': 'Clean',
+          miles: 50000
+        },
+        {
+          vin: 12345678909876543,
+          make: 'Mercedes',
+          model: 'e320',
+          transmission: 'manual',
+          'title status': 'Clean',
+          miles: 25000
+        },
+        {
+          vin: 12345678909876543,
+          make: 'Jaguar',
+          model: 'x-j s-type',
+          transmission: 'manual',
+          'title status': 'Clean',
+          miles: 1000
+        }
       ]);
     });
 };
